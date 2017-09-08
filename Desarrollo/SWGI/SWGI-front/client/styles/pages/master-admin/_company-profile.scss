@@ -1,0 +1,37 @@
+.module__cont-list--company-profile {
+    overflow: hidden;
+
+    .cont-list__information {
+        text-align: left;
+
+        .information__title {
+            color: #323D4E;
+            font-weight: bold !important;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .information__cont-tag {
+            overflow: hidden;
+            margin: 10px;
+
+            .cont-tag__tag {
+                padding: 20px 10px 20px 30px;
+                width: 50%;
+                display: inline-block;
+                float: left;
+
+                .tag__title {
+                    text-align: left;
+                }
+
+                .tag__description {
+                    padding-left: 10px;
+                    color: #616161;
+                    font-size: 15px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

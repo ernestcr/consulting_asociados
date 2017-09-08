@@ -1,0 +1,34 @@
+
+<div class="content-login">
+    <div layout="column" layout-align="center center" layout-fill="layout-fill">
+        <div class="loginBox md-whiteframe-z1" layout="column">
+            <md-toolbar>
+                <h2 class="md-toolbar-tools login-header">
+                    <img class="login-header__logo" ng-src="../../../images/app/logo.png" alt="" />
+                </h2>
+            </md-toolbar>
+            <form name="loginForm" novalidate>
+                <md-content class="md-padding" layout="column">
+                    <md-input-container>
+                        <label>Nueva contraseña</label>
+                        <input type="password" ng-model="user.password" name="password" required/>
+                        <div ng-messages="loginForm.password.$error">
+                            <div ng-message="required">Campo requerido</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Confirmar nueva contraseña</label>
+                        <input type="password" ng-model="user.passwordConfirm" name="passwordConfirm" required/>
+                        <div ng-messages="loginForm.passwordConfirm.$error">
+                            <div ng-message="required">Campo requerido</div>
+                        </div>
+                    </md-input-container>
+                    <div layout="row" layout-align="center center" class="login-cont__btn">
+                        <div flex="flex"></div>
+                        <md-button ng-disabled="loginForm.$invalid  || user.password != user.passwordConfirm" class="md-raised md-primary" type="submit" ng-click="toChangePassword(user.password)">Cambiar contraseña</md-button>
+                    </div>
+                </md-content>
+            </form>
+        </div>
+    </div>
+</div>

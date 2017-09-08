@@ -1,0 +1,122 @@
+.content__module {
+    width: 100%;
+
+    .personal__proyect-title {
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+        font-weight: bold;
+
+        .proyect-title {
+            margin-left: 10px;
+        }
+    }
+.personal__reportDay{
+  margin-top: 5px;
+}
+    // .personal__cont-charts {
+    //     overflow: hidden;
+    //     // padding: 30px 0;
+    //     padding-top: 30px;
+    //
+    //     .cont-charts__donut {
+    //         float: left;
+    //         width: 30%;
+    //         display: inline-block;
+    //
+    //         .chart-doughnut {}
+    //     }
+    //
+    //     .cont-charts__column {
+    //         float: right;
+    //         display: inline-block;
+    //         width: 70%;
+    //
+    //         .chart-bar {
+    //             max-height: 300px;
+    //         }
+    //     }
+    // }
+
+    .personal__cont-menu {
+        overflow: hidden;
+        margin-top: 15px;
+        background-color: #fff;
+
+        .cont-menu__title {
+            display: inline-block;
+            padding: 15px 8px;
+            cursor: pointer;
+
+            .title__number {
+                display: inline-block;
+                width: 10px;
+                color: #B7C0CB;
+                font-size: 10px;
+                // margin-left: 2px;
+            }
+
+            .title__icon-back {
+                vertical-align: middle;
+            }
+        }
+
+        .cont-menu__icon {
+            margin: 11px 5px;
+            float: right;
+            color: #D4D5DE;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .cont-menu__title--actual {
+            border-bottom: 3px solid #FFDA05;
+
+        }
+    }
+
+    .module__cont-list {
+        width: 100%;
+        margin: 0;
+        margin-top: 10px;
+        // margin: 30px 0;
+        background-color: #fff;
+        // padding: 15px 10px;
+    }
+}
+
+.cmp-table {
+    .table__body {
+        .body__text--upper {
+            text-transform: uppercase;
+
+            .text__lower {
+                text-transform: capitalize;
+            }
+        }
+
+        .body__text {
+            .text__icon-del {
+                margin-left: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .fa-pencil-square-o {
+                &:hover {
+                    color: #00BDFD;
+                }
+            }
+
+            .fa-times {
+                font-size: 24px;
+
+                &:hover {
+                    color: #BE1238;
+                }
+            }
+        }
+    }
+}

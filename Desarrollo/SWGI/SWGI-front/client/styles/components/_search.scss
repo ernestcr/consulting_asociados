@@ -1,0 +1,146 @@
+.cmp-search {
+    float: right;
+    display: inline-block;
+    margin: 9px;
+    border-radius: 2px;
+    border: 1px solid #E5E8ED;
+
+    .cmp-search__select {
+        border-radius: 3px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        float: left;
+        border: none;
+        border-right: 1px solid #E5E8ED;
+        // border-radius: 3px;
+        background-color: #fff;
+        // padding: 6px 0 6px 15px;
+        padding: 6px 30px 6px 15px;
+        color: #A5AAB2;
+        font-size: 13px;
+        cursor: pointer;
+        background: url("../../images/app/chevron-arrow-down.png") no-repeat right #fff;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        background-size: 12px;
+        background-position-y:10px;
+        background-position-x:72px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .cmp-search__input {
+        width: 200px;
+        height: auto;
+        border: none;
+        background-color: #fff;
+        padding: 6px 10px;
+        color: #A5AAB2;
+        font-size: 13px;
+        float: left;
+    }
+
+    .cmp-search__icon {
+        cursor: pointer;
+        padding: 5px 10px;
+        float: left;
+        font-size: 19px;
+        color: #A5AAB2;
+    }
+
+    &:hover {
+        // border: 2px solid #E5E8ED;
+    }
+}
+
+.cmp-search2 {
+    background-image: url("../../../images/app/musica-searcher.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    padding: 8px 35px;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+}
+.cmp-search2--modal{
+  border: 1px solid #cecece;
+}
+.md-icon-button {
+    margin-top: 10px; //!important;
+}
+
+.search-list {
+    width: 200px;
+    height: auto;
+    border: none;
+    background-color: #fff;
+    // padding: 6px 10px;
+    color: #A5AAB2;
+    font-size: 13px;
+    float: left;
+
+    .search-list__autocomplete {
+        height: 30px;
+        max-width: 100%;
+
+        md-autocomplete-wrap {
+          height: 35px;
+            height: 100%;
+            box-shadow: none;
+
+            md-input-container {
+                height: 100%;
+                margin: 0;
+                // height: 30px;
+                padding: 0 2px;
+            }
+
+            input {
+                height: 100%;
+                border: none;
+            }
+
+            input:not(.md-input) {
+                height: 30px;
+            }
+
+            button {
+                display: none;
+            }
+        }
+    }
+}
+// md-autocomplete{
+//   height: 35px;
+// }
+// md-autocomplete md-autocomplete-wrap{
+//   height: 35px;
+// }
+md-autocomplete-parent-scope {
+    span {
+        font-size: 12px;
+    }
+}
+// .ng-touched{
+//   height: 35px !important;
+// }
+.search-date {
+    float: right;
+    width: 140px;
+    margin-right: 0;
+    margin-left: 10px;
+
+    .md-datepicker-button {
+        margin: 5px 0;
+    }
+
+    .md-datepicker-input-container {
+        margin-left: 0;
+    }
+}

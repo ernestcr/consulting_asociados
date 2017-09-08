@@ -1,0 +1,79 @@
+  <div class="content__module container"  cg-busy="{promise:loader,message:'Cargando Data...',delay:300}">
+
+    <h5 class="personal__proyect-title">{{projectName}}</h5>
+    <!-- <img class="dash-image" src="../../../../images/app/dash.png" alt="" /> -->
+    <div class="personal__reportDay">
+        reporte del dia {{doughnut.date | date:'dd/MM/yyyy' : 'UTC'}}
+    </div>
+    <div class="personal__cont-charts">
+        <div class="cont-charts__donut">
+            <div class="donut__cont-leyend">
+                <div class="cont-leyend__item ">
+                    <span class="item__color item__color--assistance"></span> % Inasistencia
+                </div>
+                <div class="cont-leyend__item ">
+                    <span class="item__color item__color--inassistance"> </span> % Asistencia
+                </div>
+            </div>
+            <canvas id="doughnut" class="chart chart-doughnut" chart-data="doughnut.data" chart-labels="doughnut.labels" chart-colors="doughnut.colors">
+            </canvas>
+            <div class="donut__cont-number">
+                <span class="cont-number__tag">Inasistencia:</span>
+                {{worker.totalNumberWorker-worker.numberWorker}} Trabajadores
+                <br>
+                <span class="cont-number__tag">Asistencia:</span>
+                {{worker.numberWorker}} Trabajadores
+                <br>
+                <span class="cont-number__tag">Total:</span>
+                {{worker.totalNumberWorker}} Trabajadores
+            </div>
+        </div>
+        <div class="cont-charts__column">
+            <div class="column__cont-leyend">
+                <div class="cont-leyend__item ">
+                    <span class="item__color item__color--inassistance"> </span> %Horas Trabajadas
+
+                </div>
+                <div class="cont-leyend__item ">
+                    <span class="item__color item__color--assistance"></span> %Avance
+
+                </div>
+            </div>
+            <canvas id="bar" class="chart chart-bar" chart-data="bar.data" chart-labels="bar.labels" chart-colors="bar.colors" chart-series="bar.series">
+            </canvas>
+
+        </div>
+    </div>
+    <div class="personal__cont-menu" >
+        <h4 class="cont-menu__title " ui-sref="app.controlPanelAdmin.peps">Peps
+            <span class="title__number">{{pepReportList.length}}</span>
+        </h4>
+        <h4 class="cont-menu__title cont-menu__title--actual" ui-sref="app.controlPanelAdmin.groups">Cuadrillas
+            <span class="title__number">{{groupReportList.length}}</span>
+        </h4>
+        <i class="cont-menu__icon material-icons">menu</i>
+        <i class="cont-menu__icon material-icons">view_module</i>
+    </div>
+    <div class="module__cont-list">
+        <table class="cmp-table">
+            <tr class="table__header">
+                <th class="header__text ">nombre</th>
+                <th class="header__text ">nombre de capataz</th>
+                <th class="header__text ">tipo de cuadrilla</th>
+                <th class="header__text">#trabajadores</th>
+                <th class="header__text">Acciones</th>
+
+            </tr>
+            <tr class="table__body" ng-repeat="item in groupReportList">
+                <td class="body__text">{{item.name}}</td>
+                <td class="body__text">{{item.foreman.lastName + ", " + item.foreman.firstName}}</td>
+                <td class="body__text">{{item.typeGroup.speciality}}</td>
+                <td class="body__text ">{{item.quantity}}</td>
+                <td class="body__text">
+                    <i class="text__icon-del text__icon-del--material material-icons" ui-sref="app.report.attendance">playlist_add_check</i>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

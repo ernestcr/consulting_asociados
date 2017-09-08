@@ -1,0 +1,81 @@
+<md-dialog aria-label="Mango (Fruit)" class="capataz-add-cua">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{create? "Crear" : "Actualizar"}} Pep/ Agregar Partidas</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon class="material-icons icon-close">close</ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-inline-form md-dialog-content  row " layout="column" ng-cloak class="">
+                <md-content layout-padding>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="date" class="md-block" flex="30">
+                            <label class="label-select">Buscar por</label>
+                            <md-select ng-model="searchByListDefault" ng-change="change(searchByListDefault)">
+                                <md-option ng-repeat="item in searchByList" ng-value="item" ng-selected="item.key == searchByListDefault.key">
+                                    {{item.value}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <form class="" name="searchForm">
+                            <md-autocomplete class="md-block body__text--upper"
+                            flex="70" md-input-name="autocompleteField"
+                            
+                            md-input-maxlength="18"
+                            md-no-cache="autocomplete.noCache"
+                            md-selected-item="autocomplete.selectedItem"
+                            md-selected-item-change="autocomplete.pushInList(autocomplete.selectedItem)"
+                            md-search-text="autocomplete.searchText"
+                            md-items="item in autocomplete.querySearch(autocomplete.searchText)"
+                            md-item-text="(searchByListDefault.key == 'names')?item.name :item.codigo"
+                             md-floating-label="Ingrese {{searchByListDefault.value}} de la Partida">
+                                <md-item-template>
+                                    <span ng-if="searchByListDefault.key=='names'" md-highlight-text="ctrl.searchText"> {{item.name+" - "+item.codigo}}</span>
+                                    <span ng-if="searchByListDefault.key=='codigo'" md-highlight-text="ctrl.searchText"> {{item.codigo+" - "+item.name}}</span>
+                                </md-item-template>
+                                <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                    <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                    <div ng-message="md-require-match">Please select an existing state.</div>
+                                    <div ng-message="minlength">Your entry is not long enough.</div>
+                                    <div ng-message="maxlength">Your entry is too long.</div>
+                                </div>
+                            </md-autocomplete>
+                        </form>
+                        <md-button class="md-icon-button" ng-click="click()">
+                            <ng-md-icon class="material-icons btn-search">search</ng-md-icon>
+                        </md-button>
+                    </div>
+                    <div layout-gt-sm="row module__cont-list">
+                        <table class="cmp-table">
+                            <tr class="table__header">
+                                <th class="header__text ">Código</th>
+                                <th class="header__text ">Nombre</th>
+                                <th class="header__text ">Acciones</th>
+                            </tr>
+                            <tr class="table__body" ng-repeat="item in autocomplete.list track by $index">
+                                <td class="body__text ">{{item.codigo}}</td>
+                                <td class="body__text body__text--upper">{{item.name}}</td>
+                                <td class="body__text">
+                                    <i class="text__icon-del fa fa-times" title="Eliminar" aria-hidden="true" ng-click="autocomplete.deleteInList(item,autocomplete.list)"></i>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </md-content>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised btn-simonit" ng-click="cancel()">
+                Cancelar
+            </md-button>
+            <md-button class="md-raised btn-simonit" ng-click="hide(autocomplete.listId)">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

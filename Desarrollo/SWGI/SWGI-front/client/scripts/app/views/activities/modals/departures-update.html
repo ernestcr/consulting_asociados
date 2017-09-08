@@ -1,0 +1,88 @@
+<md-dialog aria-label="Mango (Fruit)" class="md-dialog-trabajador-add">
+    <form ng-cloak name="projectForm" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Actualizar Partida</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon class="material-icons icon-close">close</ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-inline-form md-dialog-content  row " layout="column" ng-cloak>
+                <md-content layout-padding>
+                    <div layout layout-align="space-between center" layout-wrap>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Codigo</label>
+                            <input class="toCapitalize" ng-model="departure.codigo" name="codigo" required>
+                            <div ng-messages="projectForm.codigo.$error">
+                                <div ng-message="required">Campo requerido</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Nombre</label>
+                            <input class="toCapitalize" ng-model="departure.name" name="name" required maxlength="100" required>
+                            <div ng-messages="projectForm.name.$error">
+                                <div ng-message="required">Campo requerido</div>
+                                <div ng-message="maxlength">Ingrese máximo 100 carácteres</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Avance Objetivo</label>
+                            <input ng-model="departure.advanceObjective" name="advanceObjective" ng-pattern="/^[0-9]{0,10}$/">
+                            <div ng-messages="projectForm.advanceObjective.$error">
+                                <div ng-message="required">Campo requerido</div>
+                                <div ng-message="pattern">Ingrese solo números. Ingrese una cantidad válida de números.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Horas Objetivo</label>
+                            <input ng-model="departure.targetHours" name="targetHours" required ng-pattern="/^[0-9]+:[0-5]{1}[0-9]{1}:00$/">
+                            <div class="hint" ng-if="true">HH:MM:00(ingresar en este formato)</div>
+                            <div ng-messages="projectForm.targetHours.$error">
+                                <div ng-message="required">Campo requerido</div>
+                                <div ng-message="pattern">Ingrese un horario valido y como el patron lo indica</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="date" flex="50" class="md-block">
+                            <label class="label-select">Unidad de Medida</label>
+                            <md-select ng-model="departure.unitMeasurement" required name="unitMeasurement">
+                                <md-option ng-repeat="item in unitMeasurementList" value="{{item.value}}" ng-selected="item.value == departure.unitMeasurement">
+                                    {{item.value}}
+                                </md-option>
+                            </md-select>
+                            <div ng-messages="projectForm.unitMeasurement.$error">
+                                <div ng-message="required">Seleccione una unidad de medida</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="date" flex="50" class="md-block" >
+                            <label class="label-select">Tipo de Partida</label>
+                            <md-select ng-model="departure.workable" name="typeDeparture" required ng-disabled="true">
+                                <md-option ng-repeat="item in typeDepartureList" ng-value="item.key" ng-selected="item.key == departure.workable">
+                                    {{item.value}}
+                                </md-option>
+                            </md-select>
+                            <div ng-messages="projectForm.typeDeparture.$error">
+                                <div ng-message="required" >Seleccione un tipo de Pep</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row" layout-align="center">
+                        <md-button class="cont-search cont-search--peps" ng-click="editPepList($event,pepSelectedList,pepSelectedListId,departure.workable)" ng-class="(pepSelectedListId!=undefined && pepSelectedListId.length!=0) ? 'cmp-button3' : 'cmp-button2'" flex-gt-sm="50">
+                            {{(pepSelectedListId!=undefined && pepSelectedListId.length!=0) ? 'Peps Agregados' : 'Agregar Peps'}}
+                        </md-button>
+                    </div>
+                </md-content>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised md-primary" ng-click="cancel()">
+                Cancelar
+            </md-button>
+            <md-button ng-disabled="projectForm.$invalid" type="submit" class="md-raised md-primary" ng-click="toUpdateDeparture(departure)">
+                Actualizar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

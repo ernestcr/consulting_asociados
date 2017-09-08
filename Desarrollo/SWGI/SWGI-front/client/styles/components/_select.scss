@@ -1,0 +1,22 @@
+.cmp-select{
+  margin: 10px;
+  border: 1px solid #E5E8ED;
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 6px 20px;
+  // padding-right: 0px;
+  color: #A5AAB2;
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+
+  background: url('../../images/app/chevron-arrow-down.png') no-repeat right #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-size: 12px;
+  background-position-y:10px;
+  background-position-x:65px;
+}

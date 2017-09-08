@@ -1,0 +1,31 @@
+.cmp-paginate {
+    text-align: right;
+
+    .paginate__box {
+        display: inline-block;
+
+        .box__btn {
+            background-color:#e0e0e0;
+            min-width: 30px;
+            margin: 6px 3px;
+
+            &:hover {
+                background-color: rgba(#A5AAB2, 1);
+            }
+
+            .arrow {
+                vertical-align: middle;
+            }
+        }
+
+        // &.active {
+        //     color: white;
+        //     background-color: #1BB934;
+        // }
+
+        .active{
+          color: white;
+          background-color: #1BB934;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+ <div class="content__module container"  cg-busy="{promise:loader,message:'Cargando Data...'}">
+    <h5 class="personal__proyect-title">{{projectName}}</h5>
+    <div class="personal__cont-menu">
+        <h4 class="cont-menu__title " ui-sref="app.activities.peps">
+          Peps
+            <span class="title__number">{{numberPep}}</span>
+        </h4>
+        <h4 class="cont-menu__title cont-menu__title--actual" ui-sref="app.activities.departures">Partidas
+            <span class="title__number">{{numberDeparture}}</span>
+        </h4>
+        <div class="cmp-search">
+            <!-- <select class="cmp-search__select" >
+                <option value="all" default>Nombre</option>
+                <option value="active">Código</option>
+            </select>
+            <input class="cmp-search__input" type="text" name="name" ng-model="Search.query"> -->
+            <select class="cmp-search__select"  ng-options="option.value for option in searchTermList track by option.key" ng-model="searchTermListDefault"></select>
+            <form class="search-list" name="searchForm">
+
+                <md-autocomplete class="md-block search-list__autocomplete body__text--upper"
+                md-input-name="autocompleteField"
+                md-input-maxlength="18" md-no-cache="autocomplete.noCache"
+                md-selected-item="autocomplete.selectedItem"
+                md-selected-item-change="autocomplete.toPaginate(autocomplete.selectedItem)"
+                md-search-text="autocomplete.searchText"
+                md-items="item in autocomplete.querySearch(autocomplete.searchText)"
+                md-item-text="(searchTermListDefault.key == 'names')?item.name :item.codigo"
+                md-require-match>
+
+                    <md-item-template>
+                        <span ng-if="searchTermListDefault.key=='names'" md-highlight-text="ctrl.searchText">{{item.name + " - " + item.codigo}}</span>
+                        <span ng-if="searchTermListDefault.key=='codigo'" md-highlight-text="ctrl.searchText">{{item.codigo + " - " + item.name}}</span>
+                    </md-item-template>
+
+                </md-autocomplete>
+            </form>
+            <i class="cmp-search__icon fa fa-search" aria-hidden="true" ng-click="Search.byField()"></i>
+        </div>
+        <select class="cmp-select" ng-model="Search.state">
+            <option value="all" default>Todos</option>
+            <option value="active">Activo</option>
+            <option value="inactive">Inactivo</option>
+        </select>
+        <button class="cmp-btn" ng-click="createDeparture($event)">Crear</button>
+    </div>
+
+    <div class="module__cont-list">
+        <table class="cmp-table">
+            <tr class="table__header">
+                <th class="header__text ">ID</th>
+                <th class="header__text ">Codigo</th>
+                <th class="header__text ">Nombre</th>
+                <th class="header__text ">Pep Asignado</th>
+                <th class="header__text ">Duracion Objetivo</th>
+                <th class="header__text ">Avance Objetivo</th>
+                <th class="header__text ">Unidad de Medida</th>
+                <th class="header__text">Estado</th>
+                <th class="header__text">COndicion</th>
+                <th class="header__text">Acciones</th>
+            </tr>
+            <tr class="table__body" ng-repeat="departure in departureList ">
+                <td class="body__text">{{departure.idNum}}</td>
+                <td class="body__text ">{{departure.codigo}}</td>
+                <td class="body__text body__text--lower">{{departure.name}}
+                </td>
+                <td class="body__text ">{{departure.peps.length}}</td>
+                <td class="body__text ">{{departure.targetHours}}</td>
+                <td class="body__text ">{{departure.advanceObjective}}</td>
+                <td class="body__text ">{{departure.unitMeasurement}}</td>
+                <td class="body__text">
+                    <div class="text__state" ng-class="{active: (departure.state == 'active'), inactive: (departure.state != 'active')}" title="Cambiar Estado" ng-click="toChangeState($event,departure)"> {{(departure.state=='active')?'activo':'inactivo'}}</div>
+                </td>
+                <td class="body__text">
+                    <div class="text__state text__state--condition" ng-class="{active: (departure.condition == 'complete'), inactive: (departure.condition != 'complete')}"> {{(departure.condition=='complete')?'completo':'incompleto'}}</div>
+                </td>
+                <td class="body__text">
+                    <i class="text__icon-del fa fa-pencil-square-o" title="Actualizar"aria-hidden="true" ng-click="updateDeparture($event,departure)"></i>
+                    <i class="text__icon-del fa fa-times" title="Eliminar" aria-hidden="true" ng-click="toDeleteDeparture($event,departure)"></i>
+                </td>
+            </tr>
+        </table>
+        <div class="cmp-paginate">
+            <div class="paginate__box">
+                <md-button class="box__btn" ng-click="Paginate.go(1)"><i class="material-icons arrow">keyboard_arrow_left</i></md-button>
+                <md-button class="box__btn" ng-repeat="page in Paginate.pageList track by $index" ng-class="{true:'active'}[Paginate.actualPage==page]" ng-click="Paginate.go(page)">{{page}}</md-button>
+                <md-button class="box__btn" ng-click="Paginate.go(Paginate.pages)"><i class="material-icons arrow">keyboard_arrow_right</i></md-button>
+            </div>
+        </div>
+    </div>
+</div>

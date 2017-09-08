@@ -1,0 +1,72 @@
+.cmp-input2 {
+    border-radius: 3px;
+    border: 1px solid #AAAAAA;
+    width: 200px;
+    height: auto;
+    // border: none;
+    margin-top: 5px;
+    background-color: #fff;
+    padding: 5px 10px;
+    color: #A5AAB2;
+    font-size: 13px;
+    width: 100%;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.inputdemoErrorsAdvanced {
+    /* NOTE: Check the demo's HTML to see some additional RTL support CSS */
+    /* Setup animations similar to the ng-messages */
+}
+
+.inputdemoErrorsAdvanced .hint {
+    /* Position the hint */
+    position: absolute;
+    left: 2px;
+    right: auto;
+    bottom: 7px;
+    /* Copy styles from ng-messages */
+    font-size: 12px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    /* Set our own color */
+    color: grey;
+}
+
+.inputdemoErrorsAdvanced .hint.ng-enter,
+.inputdemoErrorsAdvanced .hint.ng-hide,
+.inputdemoErrorsAdvanced .hint.ng-leave.ng-leave-active {
+    bottom: 26px;
+    opacity: 0;
+}
+
+.inputdemoErrorsAdvanced .hint.ng-enter.ng-enter-active,
+.inputdemoErrorsAdvanced .hint.ng-leave {
+    bottom: 7px;
+    opacity: 1;
+}
+
+.hint {
+    color: rgba(0,0,0,0.38);
+    font-weight: bold;
+}
+
+md-autocomplete input::-webkit-input-placeholder {
+    color: rgba( #A5AAB2, 0.5);
+}
+
+md-autocomplete input:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba( #A5AAB2, 0.5);
+}
+
+md-autocomplete input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba( #A5AAB2, 0.5);
+}
+
+md-autocomplete input:-ms-input-placeholder {
+    color: rgba( #A5AAB2, 0.5);
+}

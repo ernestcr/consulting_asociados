@@ -1,0 +1,44 @@
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../../node_modules/angular-material/angular-material.scss";
+// @import "../../node_modules/material-icons/src";
+// @import "../../bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.min.scss";
+@import "../../node_modules/bootstrap/dist/css/bootstrap";
+@import "../../node_modules/bootstrap/dist/css/bootstrap-theme";
+//@import "../../node_modules/angular-datetime-range/dist/datetime-range.min.css";
+// .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+@import "base/typography.scss",
+"base/reset.scss";
+@import "utils/variables.scss",
+"utils/helpers.scss",
+"utils/mixins.scss";
+@import "components/input.scss",
+"components/input2.scss",
+"components/icon.scss",
+"components/search.scss",
+"components/textarea.scss",
+"components/select.scss",
+"components/table.scss",
+"components/form.scss",
+"components/fileUpload.scss",
+"components/modal.scss",
+"components/paginate.scss",
+"components/button.scss",
+"components/modalImportLogs.scss",
+"components/progress.scss",
+"components/datetime.scss",
+"components/loader.scss",
+"components/_typeAttendance.scss";
+@import "pages/login.scss",
+"pages/pre-login.scss",
+"pages/recover-pass.scss",
+"pages/change-pass.scss",
+"pages/message-mail.scss",
+"pages/control-panel.scss",
+"pages/module.scss",
+"pages/admin/personal-modal.scss",
+"pages/admin/message.scss",
+"pages/admin/shifts.scss",
+"pages/master-admin/company-profile.scss",
+"pages/master-admin/companies.scss",
+"pages/subPanel.scss",
+"pages/panel.scss";

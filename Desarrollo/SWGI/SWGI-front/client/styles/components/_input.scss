@@ -1,0 +1,23 @@
+
+.cmp-input-txt{
+  height:50px;
+  width:100%;
+  border-radius: 5px;
+  border:2px solid $border;
+  color: #558F51;
+  font-size: 18px;
+  background: transparent;
+  padding: 20px;
+}
+.cmp-input-btn{
+  height:50px;
+  width:100%;
+  border-radius: 5px;
+  border:2px solid $border;
+  border:2px solid $yellow;
+  background-color: $yellow;
+  font-size: 16px;
+}
+.toCapitalize{
+  text-transform: uppercase;
+}

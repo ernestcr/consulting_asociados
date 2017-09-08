@@ -1,0 +1,159 @@
+<div class="content__panel">
+    <div class="panel__menu">
+        <img class="menu-cont__o" ng-src="../../../images/app/logo.png" alt="">
+        <ul class="menu-cont__items">
+            <!-- ADMIN -->
+            <li class="items__item" layout="column" layout-align="center end"  ng-click="setModuleName('PANEL DE CONTROL')" >
+                <a href="" layout layout-align="start center" ui-sref="app.controlPanelAdmin.peps">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-th fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PRODUCTOS</span>
+                </a>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='ADMIN'" ng-click="setModuleName('ACTIVIDADES')" >
+                <a href="" layout layout-align="start center" ng-click="changeStatus('activity') "  ui-sref="app.activities.peps">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-briefcase fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">ACTIVIDADES</span>
+
+                    <i class="item__arrow fa fa-chevron-down" aria-hidden="true" ng-show="status!='activity'"></i>
+                    <i class="item__arrow fa fa-chevron-up" aria-hidden="true" ng-show="status=='activity'"></i>
+                </a>
+                <div class="item__submenu" ui-view="subpanel" ng-show="status=='activity'"></div>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='ADMIN'" ng-click="setModuleName('PERSONAL')" >
+                <a href="" layout layout-align="start center" ng-click="changeStatus('personal')" ui-sref="app.personal.groups" >
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-users fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PERSONAL</span>
+                    <i class="item__arrow fa fa-chevron-down" aria-hidden="true" ng-show="status!='personal'"></i>
+                    <i class="item__arrow fa fa-chevron-up" aria-hidden="true" ng-show="status=='personal'"></i>
+
+                </a>
+                <div class="item__submenu" ui-view="subpanel" ng-show="status=='personal'">
+
+                </div>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='ADMIN'" ng-click="setModuleName('REPORTES')" >
+                <a href="" layout layout-align="start center" ng-click="changeStatus('report')" ui-sref="app.report.attendance">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-bar-chart fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">REPORTES</span>
+                    <i class="item__arrow fa fa-chevron-down" aria-hidden="true"  ng-show="status!='report'"></i>
+                    <i class="item__arrow fa fa-chevron-up" aria-hidden="true" ng-show="status=='report'"></i>
+
+                </a>
+                <div class="item__submenu" ui-view="subpanel" ng-show="status=='report'"></div>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='ADMIN'" ng-click="setModuleName('TURNOS')" >
+                <a href="" layout layout-align="start center" ng-click="changeStatus('turn')" ui-sref="app.turn.calendar">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-calendar fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">TURNOS</span>
+                    <i class="item__arrow fa fa-chevron-down" aria-hidden="true" ng-show="status!='turn'"></i>
+                    <i class="item__arrow fa fa-chevron-up" aria-hidden="true" ng-show="status=='turn'"></i>
+
+                </a>
+                <div class="item__submenu" ui-view="subpanel" ng-show="status=='turn'"></div>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='ADMIN'" ng-click="setModuleName('MENSAJES')">
+                <a href="" layout layout-align="start center"  ui-sref="app.message">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-comments fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">MENSAJES</span>
+                </a>
+            </li>
+            <!-- MASTER -->
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='MASTER'" ng-click="setModuleName('PANEL DE CONTROL')" >
+                <a href="" layout layout-align="start center" ui-sref="app.controlPanelMaster">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-th fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PANEL DE CONTROL</span>
+                </a>
+
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='MASTER'" ng-click="setModuleName('PERFIL DE EMPRESA')" >
+                <a href="" layout layout-align="start center" ui-sref="app.companyProfile">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-info fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PERFIL DE EMPRESA</span>
+                </a>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='MASTER'" ng-click="setModuleName('PROYECTOS')" >
+                <a href="" layout layout-align="start center" ui-sref="app.projects">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-building fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PROYECTOS</span>
+                </a>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='MASTER'" ng-click="setModuleName('ADMINISTRADORES')" >
+                <a href="" layout layout-align="start center" ui-sref="app.administratorMaster">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">ADMINISTRADORES</span>
+                </a>
+            </li>
+            <!-- GESTOR -->
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='GESTOR'" ng-click="setModuleName('PANEL DE CONTROL')" >
+                <a href="" layout layout-align="start center" ui-sref="app.controlPanelGestor.companiesBagExpiration">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-th fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">PANEL DE CONTROL</span>
+                </a>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='GESTOR'" ng-click="setModuleName('EMPRESAS')" >
+                <a href="" layout layout-align="start center" ui-sref="app.companies">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-industry fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">EMPRESAS</span>
+                </a>
+            </li>
+            <li class="items__item" layout="column" layout-align="center end" ng-if="role=='GESTOR'" ng-click="setModuleName('ADMINISTRADORES')" >
+                <a href="" layout layout-align="start center" ui-sref="app.administratorGestor">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">ADMINISTRADORES</span>
+                </a>
+            </li>
+
+            <li class="items__item" layout="column" layout-align="center end" ng-click="toLogout()">
+                <a href="" layout layout-align="start center">
+                    <span class="item__vertical-line"></span>
+                    <i class="item__icon fa fa-sign-out fa-rotate-180 fa-2x" aria-hidden="true"></i>
+                    <span class="item__text">SALIR</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="panel__panel-body" >
+        <div class="panel-body__header">
+            <!-- <h2 class="header__title">{{nameModule}}</h2> -->
+            <h2 class="header__title">Productos</h2>
+            
+            <div class="header__cont-user">
+                <!-- <div class="cont-user__notification">
+                    <i class="notification__bell fa fa-bell fa-2x" aria-hidden="true"></i>
+                    <div class="notification__number">3</div>
+                </div> -->
+                <div class="cont-user__data-user">
+                    <div class="data-user__cont-photo">
+                        <img class="cont-photo__photo" ng-src="{{picture.url}}" alt="">
+                        <i class="cont-photo__state fa fa-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="data-user__cont-data">
+                        <!-- <h5 class="cont-data__name">{{firstName+' '+lastName}} </h5> -->
+                        <h5 class="cont-data__name">Charles Darwin </h5>
+                        
+                        <!-- <h6 class="cont-data__role">{{role}}</h6> -->
+                        <h6 class="cont-data__role">Admin</h6>
+                        
+                        <!-- <p class="cont-data__date">{{date | date:"EEEE, dd MMMM - yyyy"}}</p> -->
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body__body" ui-view="content">
+        </div>
+    </div>
+</div>

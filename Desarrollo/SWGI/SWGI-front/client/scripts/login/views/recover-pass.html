@@ -1,0 +1,28 @@
+
+<div class="content-login">
+    <div layout="column" layout-align="center center" layout-fill="layout-fill">
+        <div class="loginBox md-whiteframe-z1" layout="column">
+            <md-toolbar>
+                <h2 class="md-toolbar-tools login-header">
+                    <img class="login-header__logo" ng-src="../../../images/app/logo.png" alt="" />
+                </h2>
+            </md-toolbar>
+            <form name="loginForm" novalidate>
+                <md-content class="md-padding" layout="column">
+                    <md-input-container>
+                        <label>Usuario</label>
+                        <input type="text" ng-model="myusername" name="username" required/>
+                        <div ng-messages="projectForm.username.$error">
+                            <div ng-message="required">Campo requerido</div>
+                        </div>
+                    </md-input-container>
+                    <div layout="row" layout-align="center center" class="login-cont__btn">
+                        <md-button href="" md-no-ink="md-no-ink" ui-sref="login.init">Volver al Login</md-button>
+                        <div flex="flex"></div>
+                        <md-button ng-disabled="loginForm.$invalid" class="md-raised md-primary" type="submit" ng-click="toSendEmail(myusername)">Recuperar contraseña</md-button>
+                    </div>
+                </md-content>
+            </form>
+        </div>
+    </div>
+</div>

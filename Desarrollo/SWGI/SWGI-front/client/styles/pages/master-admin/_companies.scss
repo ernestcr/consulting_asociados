@@ -1,0 +1,45 @@
+.content__companies{
+  width: 100%;
+  .companies__cont-menu{
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20px;
+      display: inline-block;
+      .cmp-select{
+        margin: 10px;
+        border: 1px solid #E5E8ED;
+        border-radius: 3px;
+        background-color: #fff;
+        padding: 6px 30px;
+        color: #A5AAB2;
+        float: right;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .cmp-search{
+
+      }
+
+  }
+  .companies__cont-list{
+    width: 100%;
+    margin: 30px 0;
+    background-color: #fff;
+    padding: 15px 10px;
+    .cmp-table{
+      .table__header{
+        .header__text--left{
+          text-align: left;
+        }
+      }
+      .table__body{
+        .body__text--left{
+          text-align: left;
+        }
+      }
+    }
+  }
+  .companies__index{
+    font-weight: bold;
+  }
+}

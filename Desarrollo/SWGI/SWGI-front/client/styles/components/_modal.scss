@@ -1,0 +1,149 @@
+.cmp-modal--message {
+    max-width: 500px;
+    max-height: 60%;
+}
+
+.cmp-search--modal {
+    width: 100%;
+    border: none;
+    margin: 0;
+}
+
+.search-list--modal {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.md-autocomplete--search {
+    background-image: url("../../../images/app/musica-searcher.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 8px;
+    background-position-x: 440px;
+    // padding-left: 18px ;
+    width: 100%;
+    border: none;
+    // border-radius: 15px;
+    // border: 1px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.chat-name {
+    padding: 0 13px !important;
+}
+
+md-autocomplete input::-webkit-input-placeholder {
+    color: #9F9F9F;
+}
+
+md-autocomplete input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #9F9F9F;
+}
+
+md-autocomplete input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #9F9F9F;
+}
+
+md-autocomplete input:-ms-input-placeholder {
+    color: #9F9F9F;
+}
+
+md-autocomplete button {
+    background-color: #FFF;
+}
+
+md-autocomplete-wrap {
+    box-shadow: none !important;
+}
+
+md-dialog .md-dialog-content {
+    padding: 0;
+}
+
+.md-title {
+    padding: 10px;
+    background-color: #000;
+    color: $yellow;
+    text-align: left;
+}
+
+.md-dialog-content-body {
+    padding: 15px;
+}
+
+.md-confirm-button {
+    background-color: $yellow;
+    color: #000 !important;
+}
+
+.md-cancel-button {
+    background-color: $yellow;
+    color: #000 !important;
+}
+
+md-toast.md-error-toast-theme {
+    .md-toast-content {
+        background-color: #ff0035 ;
+    }
+}
+
+md-toast.md-success-toast-theme    {
+    .md-toast-content {
+        background-color: #39B372 ;
+
+    }
+}
+
+
+md-input-container:not(.md-input-has-value) input:not(:focus) {
+    color: rgba(0,0,0,0.87) !important;
+}
+// md-input-container > md-select {
+//   font-weight: bold;
+// }
+
+.md-select-placeholder {
+    font-weight: bold;
+}
+// md-floating-label{
+//   text-transform: uppercase !important;
+// }
+
+.name-file {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.modal-upload {
+    max-width: 600px;
+}
+
+.md-content--modal {
+    background-color: #FFF;
+}
+
+.md-dialog-actions--modal {
+    // background-color: #d6d6d6;
+}
+
+.label-name {
+    // font-weight: normal;
+    transform: translate3d(0, 6px, 0) scale(0.75);
+    transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    order: 1;
+    line-height: 1.42857143;
+    font-size: 14px;
+    width: 10px;
+    padding-left: 3px;
+    color: rgba(0,0,0,0.54);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.md-input-container__modal-message {
+    margin-bottom: 0 !important;
+}

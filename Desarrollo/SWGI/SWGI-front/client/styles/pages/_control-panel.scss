@@ -1,0 +1,95 @@
+.personal__cont-charts {
+    overflow: hidden;
+    padding-top: 30px;
+
+    .cont-charts__donut {
+        float: left;
+        width: 30%;
+        display: inline-block;
+
+        .donut__cont-leyend {
+            overflow: hidden;
+            width: 90%;
+            margin: auto auto 10px;
+
+            .cont-leyend__item {
+                // width: 50%;
+                float: left;
+                margin-bottom: 5px;
+
+                .item__color {
+                    margin-left: 10px;
+                    height: 25px;
+                    width: 40px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .item__color--assistance {
+                    background-color: #289DF5;
+                }
+
+                .item__color--inassistance {
+                    background-color: #FFD400;
+                }
+            }
+        }
+
+        .chart-doughnut {
+            // background-color: red;
+            margin: 10px;
+            // width: 100%;
+            margin: auto;
+            max-width: 220px ;
+            max-height: 220px ;
+            // height: 100%;
+        }
+        .donut__cont-number{
+          padding-top: 10px;
+          text-align: center;
+          .cont-number__tag{
+            font-weight: bold;
+          }
+        }
+    }
+
+    .cont-charts__column {
+        float: right;
+        display: inline-block;
+        width: 70%;
+
+        .column__cont-leyend {
+            overflow: hidden;
+            width: 40%;
+            margin: auto auto 10px;
+
+            .cont-leyend__item {
+                // width: 50%;
+                float: left;
+                margin-bottom: 5px;
+
+                .item__color {
+                    margin-left: 10px;
+                    height: 25px;
+                    width: 40px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .item__color--assistance {
+                    background-color: #289DF5;
+                }
+
+                .item__color--inassistance {
+                    background-color: #3374B5;
+                }
+            }
+        }
+
+        .chart-bar {
+            max-height: 300px;
+        }
+    }
+}

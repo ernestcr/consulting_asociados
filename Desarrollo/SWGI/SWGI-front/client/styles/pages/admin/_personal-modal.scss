@@ -1,0 +1,53 @@
+.md-dialog-capataz-add {
+    width: 100%;
+    max-width: 70%;
+
+    md-toolbar {
+        .md-toolbar-tools {
+            background-color: #000;
+
+            h2 {
+                color: $yellow;
+            }
+        }
+    }
+
+    md-dialog-content {
+        overflow: hidden;
+
+        .md-dialog-content {
+            md-content {
+                background-color: #fff;
+                .md-button__cuadrila {
+                    background-color: #D8C918;
+                    // margin: 10px 5px 20px 0;
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    md-dialog-actions {
+        .md-button {
+
+
+            &:hover {
+                background-color: #D8C918 !important;
+            }
+        }
+    }
+}
+
+.md-input {
+    &:focus {
+        border-color: #DACA18 !important;
+    }
+}
+
+.md-input-focused label {
+    color: #DACA18 !important;
+}
+
+.btn-simonit {
+    background-color: #D8C918 !important;
+}

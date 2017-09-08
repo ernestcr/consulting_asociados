@@ -1,0 +1,69 @@
+<!-- <div class="content-login" md-theme="myTheme">
+    <div layout="column" layout-align="center center" layout-fill="layout-fill">
+        <div class="loginBox md-whiteframe-z1" layout="column">
+            <md-toolbar>
+                <h1 class="md-toolbar-tools login-header">
+                    <img class="login-header__logo" ng-src="../../../images/app/logo.png" alt="" />
+                </h1>
+            </md-toolbar>
+            <form name="loginForm" novalidate>
+                <md-content class="md-padding" layout="column">
+                    <md-input-container>
+                        <label>Usuario</label>
+                        <input type="text" ng-model="user.username" name="username" required/>
+                        <div ng-messages="loginForm.username.$error">
+                            <div ng-message="required">Campo requerido</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Contraseña</label>
+                        <input type="password" ng-model="user.password" name="password" required/>
+                        <div ng-messages="loginForm.password.$error">
+                            <div ng-message="required">Campo requerido</div>
+                        </div>
+                    </md-input-container>
+                    <div layout="row" layout-align="center center" class="login-cont__btn">
+                        <md-button href="" md-no-ink="md-no-ink" ui-sref="login.recoverPass">¿Olvidaste tu contraseña?</md-button>
+                        <div flex="flex"></div>
+                        <md-button ng-disabled="loginForm.$invalid  || form.password.length==0" class="md-raised md-primary" type="submit" ng-click="toLogin(user)">Login</md-button>
+                    </div>
+                </md-content>
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="cont-login2">
+    <div class="cont-login2__wrapper">
+        <div class="wrapper__cont-logo">
+            <span class="cont-logo__logo">SWGI</span>
+            <!-- <img class="cont-logo__logo" ng-src="../../../images/app/logo.png" alt="" /> -->
+        </div>
+        <div class="wrapper__cont-auth">
+          <form name="loginForm" novalidate>
+
+              <md-content class="md-padding" layout="column">
+                <i class="fa fa-user-circle form__icon" aria-hidden="true"></i>
+                  <md-input-container md-no-float>
+                      <!-- <label>Usuario</label> -->
+                      <input class="form__input" type="text" ng-model="user.username" name="username" placeholder="USUARIO" required/>
+                      <div ng-messages="loginForm.username.$error">
+                          <div ng-message="required">Campo requerido</div>
+                      </div>
+                  </md-input-container>
+                  <md-input-container md-no-float>
+                      <!-- <label>Contraseña</label> -->
+                      <input class="form__input" type="password" ng-model="user.password" name="password" placeholder="CONTRASEÑA" required/>
+                      <div ng-messages="loginForm.password.$error">
+                          <div ng-message="required">Campo requerido</div>
+                      </div>
+                  </md-input-container>
+                  <div class="layout"layout="row" layout-align="center center" >
+                    <md-button class="form__button" ng-disabled="loginForm.$invalid  || form.password.length==0" class="md-raised md-primary" type="submit" ng-click="toLogin(user)">Login</md-button>
+                      <md-button class="form__link" md-no-ink="md-no-ink" ui-sref="login.recoverPass">¿Olvidaste tu contraseña?</md-button> </br>
+                      <!-- <div flex="flex"></div> -->
+                  </div>
+              </md-content>
+          </form>
+        </div>
+    </div>
+</div>

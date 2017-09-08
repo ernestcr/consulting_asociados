@@ -1,0 +1,42 @@
+<md-dialog aria-label="Mango (Fruit)" class="capataz-add-cua modal-upload import-logs">
+    <md-toolbar>
+        <div class="md-toolbar-tools import-logs-head">
+            <h2 class="import-logs-head-top">
+                <span class="label label-primary import-logs-head-top-label">Filas procesadas
+                    <span class="badge import-logs-head-top-label-badge">{{processedItems}}</span>
+                </span>
+                <span class="label label-primary import-logs-head-top-label">Nuevos peps
+                    <span class="badge import-logs-head-top-label-badge">{{newPeps}}</span>
+                </span>
+                <span class="label label-primary import-logs-head-top-label">Nuevas partidas
+                    <span class="badge import-logs-head-top-label-badge">{{newDepartures}}</span>
+                </span>
+                <span class="label label-primary import-logs-head-top-label">Advertencias
+                    <span class="badge import-logs-head-top-label-badge">{{warnings}}</span>
+                </span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <ng-md-icon class="material-icons icon-close">close</ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="import-logs-body">
+            <div ng-if="logs.length == 0" class="no-logs">NO LOGS</div>
+            <div ng-if="logs.length != 0" class="row log" ng-repeat="log in logs">
+                <div class="col-sm-1 log-left">
+                    <span ng-if="log.code == 10" class="label label-warning">Warning</span>
+                    <span ng-if="log.code == 20" class="label label-default">Warning</span>
+                    <span ng-if="log.code == 30" class="label label-danger">Error</span>
+                    <br>
+                    <span class="item">Item #{{log.item}}</span>
+                </div>
+                <div class="col-sm-11">
+                    <div class="title">{{log.msgTitle}}</div>
+                    <div class="body">{{log.msg}}</div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+</md-dialog>

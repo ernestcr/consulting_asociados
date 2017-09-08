@@ -1,0 +1,153 @@
+.cmp-table {
+    width: 100%;
+    margin: 0;
+
+    .table__header {
+        background-color: #F8F9FB;
+        width: 100%;
+
+        .header__text {
+            color: #B2B3B7;
+            padding: 15px 2px;
+            font-family: 'montserrat-medium';
+            font-weight: normal;
+            text-align: center;
+            font-size: 12px;
+            // text-transform: uppercase;
+        }
+    }
+
+    .table__body {
+        width: 100%;
+        height: 80px;
+
+        .body__text {
+            font-weight: normal;
+            text-align: center;
+            color: #67686D;
+            font-size: 12px;
+            padding: 8px 2px;
+            font-family: 'montserrat-medium';
+
+
+            .text__img {
+                width: 60px;
+                height: 60px;
+                border-radius: 60px;
+            }
+
+            .text__state {
+                cursor: pointer;
+                text-transform: uppercase;
+                color: #fff;
+                // width: 100%;
+                max-width: 110px;
+                margin: 0 auto;
+                border-radius: 2px;
+                font-size: 11px;
+                padding: 2px 1px;
+                outline: none;
+                font-size: 12px;
+            }
+
+            .active {
+                background-color: #1BB934;
+            }
+
+            .inactive {
+                background-color: #9299A7;
+            }
+
+            .text__icon-del {
+                color: #BBC5D5;
+                font-size: 20px;
+                font-weight: normal;
+                cursor: pointer;
+            }
+
+            .text__icon-del--material {
+                font-size: 25px;
+                font-weight: bold;
+            }
+        }
+
+        &:hover {
+            background-color: rgba(#BBC5D5, 0.5);
+        }
+
+        &:nth-child(odd) {
+            background-color: #F8F9FB;
+
+            &:hover {
+                background-color: rgba(#BBC5D5, 0.5);
+            }
+        }
+    }
+    // .table__body:nth-child(even) {
+    //     background-color: #ffffff;
+    // }
+    .table__body--selection {
+        &.active {
+            background: #D8C918;
+
+            &:hover {
+                background: #D8C918;
+            }
+
+            .text__icon-del {
+                color: white !important;
+            }
+        }
+    }
+
+    .table__body--modal {
+        height: 50px;
+        border: none;
+
+        .body__text {
+            padding: 5px 2px;
+
+            .text__img {}
+        }
+    }
+
+    .break-line {
+        word-wrap: break-word;
+        max-width: 8rem;
+    }
+}
+
+.text__state--condition {
+    cursor: default !important;
+}
+
+.icon-image {
+    width: 10rem;
+    height: 10rem;
+}
+
+.option-square {
+    // #F2F2F2
+    // background-color: #F8F9FB;
+    border: solid 1px #E6E6E6;
+    cursor: pointer;
+    outline: none;
+    // margin: 0 1rem 0 1rem;
+    // padding: 1rem;
+    .option-square__title {
+        color: #B5B5B5;
+    }
+
+    .option-square__total {
+        font-size: 50px;
+        font-weight: bold;
+        color: #EA7700;
+        line-height: 1.2;
+    }
+}
+
+.optionSelected {
+    background-color: #EFF3F6;
+    border: solid 1px #EA7700;
+}
+//MATERIAL CUSTOM

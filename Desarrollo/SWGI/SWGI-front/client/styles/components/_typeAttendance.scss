@@ -1,0 +1,41 @@
+.container_select {
+    width: 25% !important;
+    max-width: 25% !important;
+    .demo-select-all-checkboxes {
+        padding-left: 30px;
+    }
+}
+
+.container_checkbox {
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.select_display {
+    display: block;
+}
+
+.text_select {
+    font-size: 1.9rem !important;
+}
+
+.content_button {
+    padding: 5px 20px;
+}
+
+//no practico
+.company-domain {
+    text-align: right;
+}
+
+.loader-prelogin {
+    text-align: center;
+    height: 100%;
+    .loader-style {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

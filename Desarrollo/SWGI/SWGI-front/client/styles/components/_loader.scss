@@ -1,0 +1,10 @@
+.cg-busy-default-text {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'montserrat-medium';
+    font-weight: 500;
+    animation-name: loader;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    // margin: 0 auto !important;
+}

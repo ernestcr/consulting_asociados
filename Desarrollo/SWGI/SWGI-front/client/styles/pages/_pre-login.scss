@@ -1,0 +1,77 @@
+.opacity {
+    height: 100%;
+    background-color: rgba(#F9F9F9, 0.9);
+}
+
+.pre-login {
+    height: 100%;
+    background-image: url('../../../images/app/build1.jpg');
+    background-origin: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .pre-login__header {
+        width: 100%;
+        position: fixed;
+        height: 90px;
+        background-color: #fff;
+        box-shadow: 0 0 5px 0 rgba(#000, 0.1);
+        .header__logo {
+            margin-left: 20px;
+            max-width: 170px;
+        }
+        .header__cont-option {
+            padding: 0;
+            margin: 0;
+            padding-right: 20px;
+            .cont-option__option {
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+        }
+    }
+    .pre-login__body {
+        padding-top: 90px;
+        height: 100%;
+        .body__cont-sign {
+            padding: 40px 70px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px 0 rgba(#000, 0.1);
+            .cont-sign__title {
+                font-weight: bold;
+            }
+            .cont-sign__subtitle {
+                margin-top: 20px;
+            }
+            .cont-sign__cont-input {
+                margin-top: 20px;
+                p {
+                    font-weight: bold;
+                }
+            }
+            .cmp-btn--sign {
+                margin-top: 15px;
+                background-color: #DDCD0E;
+                color: #000;
+                font-size: 15px;
+                width: 100%;
+                padding: 15px;
+                border-radius: 5px;
+                border: 2px solid #DDCD0E;
+                &:hover {
+                    border: 2px solid rgba(#DDCD0E, 0.5);
+                    background-color: rgba(#DDCD0E, 0.5);
+                }
+            }
+            .cont-sign__dont-know {
+                .dont-know__find {
+                    font-weight: bold;
+                    color: #3696C7;
+                    cursor: pointer;
+                }
+            }
+        }
+        .body__cont-signed {}
+    }
+}

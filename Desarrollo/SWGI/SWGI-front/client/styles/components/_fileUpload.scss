@@ -1,0 +1,44 @@
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .progress {
+    line-height: 15px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+
+.file-text {
+    display: inline-block;
+    color: rgba(0,0,0,0.87);
+
+
+}
+
+.uploadFile {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-bottom-color: rgba(#000,0.12);
+    width: 100%;
+    text-align: left;
+    color: rgba(#000,0.38);
+    font-weight: bolder;
+    outline-color:$yellow;
+    &:hover{
+      color: $yellow;
+    }
+}

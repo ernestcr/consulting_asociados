@@ -1,0 +1,55 @@
+<md-dialog aria-label="Mango (Fruit)" class="capataz-add-cua modal-upload">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Importar archivo</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <ng-md-icon class="material-icons icon-close">close</ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-inline-form md-dialog-content  row " layout="column" ng-cloak class="">
+        <md-content layout-padding>
+          <div layout-gt-sm="row">
+            <md-input-container flex="100" class="md-block">
+              <div ngf-drop ngf-select class="drop-box" required ng-model="file.picture" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-pattern="'.xls,.csv,.xlsx'" accept=".xls,.csv,.xlsx">
+                <div class="layer">
+                  <div ng-if="!file.picture">
+                    <ng-md-icon icon="cloud_upload" style="fill: #9e9e9e " size="30"></ng-md-icon>
+                    <div class="upload__text">
+                      Arrastra o click aqui para subir un archivo
+                    </div>
+                  </div>
+                  <div>
+                    <img class="thumbnail" ngf-thumbnail="file.picture.url || file.picture">
+                    <div class="upload__text" ng-if="file.picture">Archivo subido: <span class="name-file">{{file.picture.name}}</span> <br><br>Click aqui para cambiar el archivo </div>
+                  </div>
+                </div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row" ng-if="!file.picture">
+            <a href="//104.236.250.76/storage/files/formato-importar-peps.xls" class="btn btn-link">Descargar formato</a>
+          </div>
+          <div layout-gt-sm="row" ng-if="isFileUploading">
+            <div class="progress import-progress">
+              <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" style="width: {{uploadingPtg}}%;">
+                {{uploadingPtg}}%
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button class="md-raised btn-simonit" ng-click="cancel()">
+        Cancelar
+      </md-button>
+      <md-button class="md-raised btn-simonit" ng-click="toImportFile(file)" ng-disabled="projectForm.$invalid">
+        Guardar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

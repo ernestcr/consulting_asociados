@@ -1,0 +1,55 @@
+.content-recover{
+  height:100%;
+  width:100%;
+  background-color:$background;
+  position:absolute;
+  .box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height:450px;
+    width:420px;
+    background-color:$box-login;
+    border-radius:20px;
+    .wrapper{
+      width:88%;
+      margin:0 auto;
+      text-align: center;
+
+      .title{
+        font-size:50px;
+        color:$yellow;
+        font-weight:bold;
+        margin-top:70px;
+        margin-bottom:20px;
+      }
+      .cmp-input-txt--recover{
+        margin-top:40px;
+        border:2px solid #E4E4E4;
+
+        &:focus{
+          border:2px solid $yellow;
+        }
+
+      }
+      .cmp-input-btn--recover{
+        margin-top:30px;
+        font-weight:bold;
+        font-size:20px;
+        &:hover{
+              background-color: #A89A38;
+              border:2px solid #A89A38;
+        }
+      }
+      .forgot-pass{
+
+        margin-top:40px;
+        display: block;
+
+        color:#9C9B9E;
+        font-size:18px;
+      }
+    }
+  }
+}

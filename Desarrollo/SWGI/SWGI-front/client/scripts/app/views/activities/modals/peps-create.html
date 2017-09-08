@@ -1,0 +1,50 @@
+<md-dialog aria-label="Mango (Fruit)" class="md-dialog-trabajador-add">
+    <form ng-cloak name="projectForm" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Crear Pep</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon class="material-icons icon-close">close</ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-inline-form md-dialog-content  row " layout="column" ng-cloak>
+                <md-content layout-padding>
+                    <div layout layout-align="space-between center" layout-wrap>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Código</label>
+                            <input class="toCapitalize" ng-model="pep.codigo" name="codigo" ng-pattern="/^[a-zA-Z0-9]+(\-[a-zA-Z0-9]+){1,}$/" required>
+                            <div class="hint" ng-if="true">Ejm:CED-22-14-15-54-12</div>
+                            <div ng-messages="projectForm.codigo.$error">
+                                <div ng-message="required">Campo requerido.</div>
+                                <div ng-message="pattern">Ingrese un código como el patron indicado.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Nombre</label>
+                            <input class="toCapitalize" ng-model="pep.name" name="name" required maxlength="100">
+                            <div ng-messages="projectForm.name.$error">
+                                <div ng-message="required">Campo requerido</div>
+                                <div ng-message="maxlength">Ingrese como máximo 100 carácteres</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50" class="md-block">
+                            <label>Partidas</label>
+                            <input ng-model="departureListStatus" ng-click="createDepartureList($event,hola)">
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised md-primary" ng-click="cancel()">
+                Cancelar
+            </md-button>
+            <md-button ng-disabled="projectForm.$invalid" type="submit" class="md-raised md-primary" ng-click="toCreatePep(pep)">
+                Crear
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

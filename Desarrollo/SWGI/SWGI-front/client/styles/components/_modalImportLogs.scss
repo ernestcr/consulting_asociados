@@ -1,0 +1,35 @@
+.import-logs {
+    max-width: none;
+    .import-logs-head {
+        .import-logs-head-top {
+            text-align: left;
+            .import-logs-head-top-label {
+                margin-right: 10px;
+                .import-logs-head-top-label-badge {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .import-logs-body {
+        .no-logs {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .log {
+            border: 1px #000 solid;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 15px;
+            .log-left {
+                text-align: center;
+            }
+            .title {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+    }
+}

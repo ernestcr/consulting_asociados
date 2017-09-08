@@ -1,0 +1,32 @@
+<div ng-init="loader=true; block = false" class="loader-prelogin">
+    <div ng-if="loader" class="loader-style">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </div>
+    <div class="pre-login" ng-init="loader=true; block = false" ng-if="block">
+        <div class="opacity">
+            <div class="pre-login__header" layout layout-align="space-between center">
+                <img class="header__logo" ng-src="../../../images/app/logo.png" alt="">
+                <!--<ul class="header__cont-option" flex=25 layout layout-align="space-between center">
+                <li class="cont-option__option">opcion 1</li>
+                <li class="cont-option__option">opcion 2</li>
+                <li class="cont-option__option">Armando Casas</li>
+                <li class="cont-option__option">opcion 4</li>
+            </ul >-->
+            </div>
+            <div class="pre-login__body" layout="column" layout-align="space-around center">
+                <div class="body__cont-sign" layout="column" layout-align="space-around center">
+                    <h2 class="cont-sign__title"> ingresa a tu empresa</h2>
+                    <p class="cont-sign__subtitle">Ingresa tu empresa simonit url</p>
+                    <div class="cont-sign__cont-input" layout layout-align="space-around center">
+                        <input class="cmp-input-txt" ng-model="domain" type="text" placeholder="el nombre de tu empresa">
+                        <p>{{baseDomain}}</p>
+                    </div>
+                    <button class="cmp-btn cmp-btn--sign" ng-click="isValidDomain(baseDomain, domain)"> continuar</button>
+                    <br>
+                    <!--<p class="cont-sign__dont-know">no conoces la url de tu empresa <span class="dont-know__find">Encuentra tu empresa</span></p>-->
+                </div>
+                <div class="body__cont-signed"></div>
+            </div>
+        </div>
+    </div>
+</div>
