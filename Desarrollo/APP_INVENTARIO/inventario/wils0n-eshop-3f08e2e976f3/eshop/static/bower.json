@@ -1,0 +1,30 @@
+{
+  "name": "angular-app",
+  "authors": [
+    "Dick Van <jholarck@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18",
+    "angular-route": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "ng-file-upload": "^12.0.4",
+    "angularjs-datepicker": "^2.1.3",
+    "angular-bootstrap": "^1.3.2",
+    "angucomplete-alt": "^2.4.1",
+    "angular-ui-sortable": "^0.14.1",
+    "select2": "^4.0.3"
+  }
+}

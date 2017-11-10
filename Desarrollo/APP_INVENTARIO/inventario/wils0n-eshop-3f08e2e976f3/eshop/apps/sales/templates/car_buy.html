@@ -1,0 +1,53 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'common/navbar.html' %}
+
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/sales">Compras</a></li>
+                <li class="active"> Lista de ordenes</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-md-offset-2 col-sm-8">
+            <h1 class="section-title-inner"><span><i class="fa fa-list-alt"></i> Subir sus comprobantes </span></h1>
+
+            <div class="row userInfo">
+                    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+                        <fieldset class="form-group">
+                            <label for="exampleInputEmail1">Código del voucher</label><br>
+                            {{ form.code }}
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputEmail1">Voucher</label><br>
+                            {{ form.voucher }}
+                        </fieldset>
+                        <input type="submit" value="COMPRAR" class="btn btn-block btn-warning"/>
+                    </form>
+            </div>
+
+            <!--/row end-->
+
+        </div>
+        <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="next pull-left"><a href="{% url 'sales:car' sale.uid %}"> &larr; Regresar a detalles</a></li>
+                    </ul>
+                </div>
+    </div>
+    <!--/row-->
+
+    <div style="clear:both"></div>
+</div>
+<!-- /main-container -->
+
+<div class="gap"></div>
+
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'common/navbar.html' %}
+
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/sales">Compras</a></li>
+                <li class="active"> Lista de ordenes</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-md-offset-2 col-sm-8">
+            <h1 class="section-title-inner"><span><i class="fa fa-list-alt"></i> Estado de orden </span></h1>
+
+            <div class="row userInfo">
+                <div class="col-lg-12">
+                    <h2 class="block-title-2"> Su estado de orden </h2>
+                </div>
+
+
+                <div class="statusContent">
+
+
+                    <div class="col-sm-12">
+                        <div class=" statusTop">
+                            <p><strong>Estado:</strong> {{ sale.state|capfirst }}</p>
+                            {% if sale.state == 'paid' %}
+                            <p><strong>Fecha de orden:</strong> {{ sale.date_paid }}</p>
+                            {% endif %}
+
+                            <p><strong>Orden ID:</strong> #{{ sale.uid|upper }} </p>
+                        </div>
+                    </div>
+                    {% if sale.state == 'paid' %}
+                    <div class="col-sm-12">
+                        <div class="order-box">
+                            <div class="order-box-header">
+                                Método de pago
+                            </div>
+
+
+                            <div class="order-box-content">
+                                <div class="address">
+                                    <p>Pago via transferencia bancaria <span style="color: green"
+                                                                     class="green"> <strong>(Pagado)</strong> </span></p>
+
+                                    <p><strong>Codigo de Voucher: </strong>
+                                        {% if sale.code_voucher %}
+                                        {{ sale.code_voucher }}
+                                        {% endif %}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    {% if sale.state == 'requested' %}
+                        <div class="row" style="padding-bottom: 20px;">
+                            <div class="col-lg-6 col-xs-6 col-md-6 ">
+                                <button type="button" class="btn btn-default"><a href="/">SEGUIR COMPRANDO</a></button>
+                            </div>
+                            <div class="col-lg-6 col-xs-6 col-md-6 ">
+                                <div class="pull-right">
+                                    <a href="{% url 'sales:car_buy' sale.uid %}" class="btn btn-warning">
+                                        PROCESAR MI COMPRA
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                    <div class="col-sm-12 clearfix">
+                        <div class="order-box">
+                            <div class="order-box-header">
+                                Productos
+                            </div>
+
+
+                            <div class="order-box-content">
+                                <div class="table-responsive">
+                                    <table class="order-details-cart">
+                                        <tbody>
+                                        {% for sale_product in sale.sale_products.all %}
+                                        <tr class="cartProduct">
+                                            <td class="cartProductThumb" style="width:20%">
+                                                <div><a href="#"> <img alt="img"
+                                                                                          src="{{ sale_product.product.image_principal.medium.url }}">
+                                                </a></div>
+                                            </td>
+                                            <td style="width:40%">
+                                                <div class="miniCartDescription">
+                                                    <h4><a href="#"> {{ sale_product.product.name }} </a></h4>
+                                                    <span class="size"> {{ sale_product.size }} </span>
+
+                                                    <div class="price"><span> S/. {{ sale_product.product.net_price }} </span></div>
+                                                </div>
+                                            </td>
+                                            <td class="" style="width:10%"><a> X {{ sale_product.quantity }} </a></td>
+                                            <td class="" style="width:15%"><span> S/. {{ sale_product.amount }} </span></td>
+
+                                        </tr>
+                                        {% endfor %}
+
+                                        <tr class="cartTotalTr blank">
+                                            <td class="" style="width:20%">
+                                                <div></div>
+                                            </td>
+                                            <td style="width:40%"></td>
+                                            <td class="" style="width:20%"></td>
+                                            <td class="" style="width:15%"><span>  </span></td>
+
+                                        </tr>
+
+                                        <tr class="cartTotalTr">
+                                            <td class="" style="width:20%">
+                                                <div></div>
+                                            </td>
+                                            <td style="width:40%"></td>
+                                            <td class="" style="width:20%">SubTotal</td>
+                                            <td class="" style="width:15%"><span class="price"> s/. {{ sale.total_amount }} </span></td>
+
+                                        </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="previous pull-right"><a href="/"> <i class="fa fa-home"></i> Seguir a comprando </a>
+                        </li>
+                        <li class="next pull-left"><a href="/sales"> ← Regresar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--/row end-->
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5"></div>
+    </div>
+    <!--/row-->
+
+    <div style="clear:both"></div>
+</div>
+<!-- /main-container -->
+
+<div class="gap"></div>
+
+{% endblock %}

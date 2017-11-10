@@ -1,0 +1,237 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{% static 'assets/ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{% static 'assets/ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{% static 'assets/ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+    <link rel="shortcut icon" href="{% static 'assets/ico/favicon.png' %}">
+    <title>E-SHOP</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+
+    <script src="{% static 'assets/js/pace.min.js' %}"></script>
+</head>
+
+<body>
+
+{% include 'common/navbar.html' %}
+
+<div class="container main-container headerOffset">
+
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="col-lg-6 col-xs-6 col-md-6 ">
+            <button type="button" class="btn btn-default"><a href="/">SEGUIR COMPRANDO</a></button>
+        </div>
+        <div class="col-lg-6 col-xs-6 col-md-6 ">
+            <div class="pull-right">
+                <a href="{% url 'sales:car_buy' sale.uid %}" class="btn btn-warning">
+                    PROCESAR MI COMPRA
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Main component call to action -->
+    <div class="row">
+        <div class="col-lg-12 col-xs-12 col-md-12 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Artículo seleccionado</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="row userInfo">
+                                <div class="col-xs-12 col-sm-12">
+                                    <table>
+                                        <thead>
+                                        <tr class="active">
+                                            <td style="width:20%; text-align: center">Sus artículos</td>
+                                            <td></td>
+                                            <td>Precio unitario</td>
+                                            <td style="text-align: center;">Cantidad</td>
+                                            <td style="text-align: center;">Precio total</td>
+                                            <td style="text-align: center;">Eliminar</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for sale_product in sale.sale_products.all %}
+
+
+
+                                            <tr class="CartProduct">
+                                                <td style="width:20%" class="CartProductThumb">
+                                                    <div><a href="/products/{{ sale_product.product.slug }}/"><img
+                                                            src="{{ sale_product.product.image_principal.medium.url }}"
+                                                            alt="img"></a></div>
+                                                </td>
+                                                <td style="width:20%">
+                                                    <div class="CartDescription">
+                                                        <h4>
+                                                            <a href="/products/{{ item.slug }}/">{{ sale_product.product.name }} </a>
+                                                        </h4>
+
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label">Talla:</label>
+
+                                                                <div class="col-sm-9">
+                                                                    <label>{{ sale_product.size }}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h4>S/. {{ sale_product.product.net_price }}</h4>
+                                                </td>
+                                                <td style="width:20%">
+                                                    <div class="form-group">
+                                                        <p>{{ sale_product.quantity }}</p>
+                                                    </div>
+                                                    {#                                                    <div class="form-group">#}
+                                                    {#                                                        <INPUT TYPE="NUMBER" MIN="0" MAX="10" STEP="2" VALUE="1"#}
+                                                    {#                                                               SIZE="6">#}
+                                                    {#                                                        #}
+                                                    {#                                                        <button type="button" class="btn btn-danger">Eliminar</button>#}
+                                                    {#                                                    </div>#}
+                                                </td>
+                                                <td style="width:20%">
+                                                    <h4>S/. {{ sale_product.amount }}</h4>
+                                                </td>
+                                                <td style="width:20%">
+                                                    <a class="btn btn-danger" onclick="remove_cart(this)" data-id="{{ sale_product.id }}">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="well col-lg-12 clearfix">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 col-md-6 "></div>
+                                        <div class="col-lg-6 col-xs-6 col-md-6 ">
+                                            <div class="form-group ">
+                                                <label class="col-sm-4 control-label">Subtotal
+                                                    ( {{ sale.sale_products.all|length }} articulos):</label>
+
+                                                <div class="col-sm-8">
+                                                    <label>S/. {{ sale.total_amount }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class="col-sm-4 control-label">Descuentos:</label>
+
+                                                <div class="col-sm-8">
+                                                    <label>S/. 0.00</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class="col-sm-4 control-label">Total:</label>
+
+                                                <div class="col-sm-8">
+                                                    <label>S/. {{ sale.total_amount }}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row  -->
+        </div>
+    </div>
+</div>
+<!-- /main container -->
+
+<div class="gap"></div>
+
+<!-- Product Details Modal  -->
+<div class="modal fade" id="productSetailsModalAjax" tabindex="-1" role="dialog"
+     aria-labelledby="productSetailsModalAjaxLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<!-- Le javascript
+================================================== -->
+
+{% include 'common/scripts.html' %}
+<script>
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (settings.type == 'POST' || settings.type == 'PUT' || settings.type == 'DELETE') {
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                    // Only send the token to relative URLs i.e. locally.
+                    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                }
+            }
+        }
+    });
+    function remove_cart(obj) {
+        var id = obj.getAttribute('data-id');
+        console.log(id);
+        var url_cart = '/sales/api/sale/product/'+id+'/remove/';
+
+        $.ajax({
+            url: url_cart,
+            type: "POST",
+            dataType: "json",
+            success: function (json) {
+                console.log(json, "response");
+                location.reload();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr, thrownError);
+                //alert("error");
+            }
+        });
+    }
+</script>
+</body>
+</html>
