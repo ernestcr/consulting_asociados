@@ -1,0 +1,110 @@
+<!--right column-->
+<div class="col-lg-9 col-md-9 col-sm-12">
+    <div class="row  categoryProduct xsResponse clearfix">
+        <div class="item col-sm-3 col-lg-3 col-md-3 col-xs-6" ng-repeat="item in Product.list">
+            <div class="product">
+                <a class="add-fav tooltipHere" ng-class="{heart: item.is_like}" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                   data-placement="left" onclick="add_washlist(this)" data-uid="{{ item.uid }}">
+                    <i class="glyphicon glyphicon-heart"></i>
+                </a>
+                <div class="image">
+                    <a href="/products/{{item.slug}}/">
+                        <img ng-src="{{item.image_principal}}" alt="img" class="img-responsive" style="height:240px">
+                    </a>
+                    <div class="promotion">
+                        <!--<span class="new-product"> NEW</span>-->
+                        <span class="discount" ng-show="{{ item.discount }}">{{ item.discount }}% OFF</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <h4><a href="#">{{item.name}}</a></h4>
+
+                    <div class="grid-description">
+                        <p>{{item.model}} </p>
+                        <div class="price"><span>{{item.unit_price}}: {{item.gross_price}}</span></div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.item-->
+    </div>
+    <!--/.categoryProduct || product content end-->
+</div>
+<!--/right column end-->
+<script>
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (settings.type == 'POST' || settings.type == 'PUT' || settings.type == 'DELETE') {
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                    // Only send the token to relative URLs i.e. locally.
+                    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                }
+            }
+        }
+    });
+    function add_washlist(obj) {
+        var uid = obj.getAttribute('data-uid')
+
+        if ($(obj).hasClass('heart')){
+            var url_remove_washlist = '/users/api/wishlist/product/' + uid + '/remove/';
+
+            $.ajax({
+                url: url_remove_washlist,
+                type: "POST",
+                dataType: "json",
+                success: function (json) {
+                    console.log(json, "response");
+                    $(obj).removeClass('heart');
+                    $("#success-alert p").prepend('<span>Su producto <strong>ha sido eliminado</strong> de su lista de deseos</span>');
+                    $("#success-alert").show();
+                    window.setTimeout(function () {
+                        $("#success-alert").hide();
+                        $("#success-alert p span").remove()
+                    }, 5000);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr, thrownError);
+                    //alert("error");
+                }
+            });
+        }else{
+            var url_add_washlist = '/users/api/wishlist/product/'+uid+'/add/';
+            $.ajax({
+                url: url_add_washlist,
+                type: "POST",
+                dataType: "json",
+                success: function (json) {
+                    console.log(json, "response");
+                    $(obj).addClass('heart');
+                    $("#success-alert p").prepend('<span>Su producto <strong>ha sido agregado</strong> a su lista de deseos</span>');
+                    $("#success-alert").show();
+                    window.setTimeout(function () {
+                        $("#success-alert").hide();
+                        $("#success-alert p span").remove()
+                    }, 5000);
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr, thrownError);
+                    //alert("error");
+                }
+            });
+        }
+    }
+</script>

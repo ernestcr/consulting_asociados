@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<!-- Le javascript ================================================== -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+    </script>-->
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- include jqueryCycle plugin -->
+    <script src="{% static 'assets/js/jquery.cycle2.min.js' %}"></script>
+    <!-- include easing plugin -->
+    <script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+
+    <!-- include  parallax plugin -->
+    <script type="text/javascript" src="{% static 'assets/js/jquery.parallax-1.1.js' %}"></script>
+
+    <!-- optionally include helper plugins -->
+    <script type="text/javascript" src="{% static 'assets/js/helper-plugins/jquery.mousewheel.min.js' %}"></script>
+
+    <!-- include mCustomScrollbar plugin //Custom Scrollbar  -->
+
+    <script type="text/javascript" src="{% static 'assets/js/jquery.mCustomScrollbar.js' %}"></script>
+
+    <!-- include icheck plugin // customized checkboxes and radio buttons   -->
+    <script type="text/javascript" src="{% static 'assets/plugins/icheck-1.x/icheck.min.js' %}"></script>
+
+    <!-- include grid.js // for equal Div height  -->
+    <script src="{% static 'assets/js/grids.js' %}"></script>
+
+    <!-- include carousel slider plugin  -->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+    <script src='{% static 'assets/js/jquery.zoom.js' %}'></script>
+    <script>
+        $(document).ready(function () {
+            //$('.swipebox').zoom();
+
+            $('#zoomContent').zoom();
+            $(".zoomThumb a").click(function () {
+                var largeImage = $(this).find("img").attr('data-large');
+                $(".zoomImage1").attr('src', largeImage);
+                $(".zoomImg").attr('src', largeImage);
+                $(".gall-item").attr('href', largeImage);
+
+            });
+
+            $('.productImageZoomx').magnificPopup({
+                delegate: 'img', type: 'image', gallery: {enabled: true},
+
+                callbacks: {
+                    elementParse: function () {
+                        this.item.src = this.item.el.attr('src');
+                    }
+                }
+
+            });
+
+
+            $('.gall-item').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+
+            $("#zoomContent").click(function () {
+                //alert();
+                $('.gall-item').trigger('click');
+            });
+
+            // CHANGE IMAGE MODAL THUMB
+
+            $(".product-thumbList a").click(function () {
+                var largeImage = $(this).find("img").attr('data-large');
+                $(".mainImg").attr('src', largeImage);
+
+            });
+
+        });
+    </script>
+
+    <script src="{% static 'assets/plugins/magnific/jquery.magnific-popup.min.js' %}"></script>
+
+    <!-- jQuery select2 // custom select   -->
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>-->
+
+    <!-- include touchspin.js // touch friendly input spinner component   -->
+    <script src="{% static 'assets/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.touchspin.js' %}"></script>
+    <script src="{% static 'assets/js/home.js' %}"></script>
+    <!-- include custom script for site  -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+
+    <script src="{% static 'assets/plugins/rating/bootstrap-rating.min.js' %}"></script>
+    <script>
+        $(function () {
+
+            $('.rating-tooltip-manual').rating({
+                extendSymbol: function () {
+                    var title;
+                    $(this).tooltip({
+                        container: 'body',
+                        placement: 'bottom',
+                        trigger: 'manual',
+                        title: function () {
+                            return title;
+                        }
+                    });
+                    $(this).on('rating.rateenter', function (e, rate) {
+                        title = rate;
+                        $(this).tooltip('show');
+                    })
+                            .on('rating.rateleave', function () {
+                                $(this).tooltip('hide');
+                            });
+                }
+            });
+
+        });
+    </script>

@@ -1,0 +1,287 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    {% include 'common/navbar.html' %}
+
+    <div class="banner">
+        <div class="full-container">
+            <div class="content">
+                <ul id="pager2" class="container">
+                </ul>
+                <!-- prev/next links -->
+
+                <span class="prevControl sliderControl"> <i class="fa fa-angle-left fa-3x "></i></span> <span
+                    class="nextControl sliderControl"> <i class="fa fa-angle-right fa-3x "></i></span>
+
+                <div class="slider slider-v1"
+                     data-cycle-swipe=true
+                     data-cycle-prev=".prevControl"
+                     data-cycle-next=".nextControl" data-cycle-loader="wait">
+
+                    {% for slider in sliders %}
+                    <div class="slider-item slider-item-img{{ forloop.counter }}">
+                        <div class="sliderInfo">
+                            <div class="container">
+                                <div class="col-lg-12 col-md-12 col-sm-12 sliderTextFull ">
+                                    <div class="inner text-center">
+                                        <div class="topAnima animated">
+                                            <h1 class="uppercase xlarge">{{ slider.title }}</h1>
+
+                                            <h3 class="hidden-xs"> {{ slider.text }} </h3>
+                                        </div>
+                                        <!--<a class="btn btn-danger btn-lg bottomAnima animated opacity0">SHOP NOW ON TSHOP
+                                            <span class="arrowUnicode">►</span></a>
+                                            --></div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="{{ slider.img.url }}" class="img-responsive parallaximg sliderImg"
+                             alt="img"></div>
+                    {% endfor %}
+                    <!--/.slider-item-->
+                </div>
+                <!--/.slider slider-v1-->
+            </div>
+            <!--/.slider-content-->
+        </div>
+        <!--/.full-container-->
+    </div>
+    <!--/.banner style1-->
+
+    <div class="container main-container">
+
+        <!-- Main component call to action -->
+
+        <div class="row featuredPostContainer globalPadding style2">
+            <h3 class="section-title style2 text-center"><span>OFERTAS</span></h3>
+
+            <div id="productslider" class="owl-carousel owl-theme">
+                {% for ofert in oferts %}
+                    <div class="item">
+                        <div class="product">
+
+                            <div class="image">
+
+                                <a href="/products/{{ ofert.slug }}/"><img src="{{ ofert.image_principal.medium.url }}"
+                                                                           alt="img"
+                                                                           class="img-responsive"></a>
+
+                                <div class="promotion"> <span
+                                        class="discount">{{ ofert.discount }}% OFF</span></div>
+                            </div>
+                            <div class="description">
+                                <h4><a href="/products/{{ ofert.slug }}/">{{ ofert.name }} </a></h4>
+
+                                <p>{{ ofert.description }}</p>
+                            </div>
+                            <div style="margin-bottom: 20px" class="price"><span>S/. {{ ofert.net_price }}</span></div>
+                            {#                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i#}
+                            {#                                class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>#}
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+                <!--/.productslider-->
+
+            </div>
+            <!--/.featuredPostContainer-->
+        </div>
+    </div>
+    <!-- /main container -->
+
+    <div class="parallax-section parallax-image-1">
+        <div class="container">
+            <div class="row ">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="parallax-content clearfix">
+                        <h1 class="parallaxPrce"> $200 </h1>
+
+                        <h2 class="uppercase">FREE INTERNATIONAL SHIPPING! Get Free Shipping Coupons</h2>
+
+                        <h3> Energistically develop parallel mindshare rather than premier deliverables. </h3>
+
+                        <div style="clear:both"></div>
+                        <!--<a class="btn btn-discover "> <i class="fa fa-shopping-cart"></i> SHOP NOW </a>--></div>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.parallax-image-1-->
+
+    <div class="container main-container">
+
+        <!-- Main component call to action -->
+
+        <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
+            <h3 class="section-title style2 text-center"><span>PRODUCTOS NUEVOS</span></h3>
+
+            <div class="container">
+                <div class="row xsResponse">
+                    {% for ofert in news %}
+                        <div class="item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+
+
+                            <div class="product">
+
+                                <div class="image">
+
+                                    <a href="/products/{{ ofert.slug }}/"><img
+                                            src="{{ ofert.image_principal.medium.url }}"
+                                            alt="img"
+                                            class="img-responsive"></a>
+
+                                    <div class="promotion">
+                                        <span class="new-product"> NEW</span>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4><a href="/products/{{ ofert.slug }}/">{{ ofert.name }} </a></h4>
+
+                                    <p>{{ ofert.description }}</p>
+                                </div>
+                                <div style="margin-bottom: 20px" class="price">
+                                    <span>S/. {{ ofert.net_price }}</span></div>
+                                {#                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i#}
+                                {#                                class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>#}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                    <!--/.item-->
+                </div>
+                <!-- /.row -->
+
+                <!--<div class="row">
+                    <div class="load-more-block text-center"><a class="btn btn-thin" href="#"> <i
+                            class="fa fa-plus-sign">+</i> load more products</a></div>
+                </div>-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.featuredPostContainer-->
+
+        <hr class="no-margin-top">
+        <!--<div class="width100 section-block ">
+            <div class="row featureImg">
+                <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img
+                        src="{% static 'images/site/new-collection-1.jpg' %}"
+                        class="img-responsive" alt="img"></a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img
+                        src="{% static 'images/site/new-collection-2.jpg' %}"
+                        class="img-responsive" alt="img"></a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img
+                        src="{% static 'images/site/new-collection-3.jpg' %}"
+                        class="img-responsive" alt="img"></a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img
+                        src="{% static 'images/site/new-collection-4.jpg' %}"
+                        class="img-responsive" alt="img"></a>
+                </div>
+            </div>
+        </div>-->
+        <!--/.section-block-->
+
+        <!--<div class="width100 section-block">
+            <h3 class="section-title"><span> BRAND</span> <a id="nextBrand" class="link pull-right carousel-nav"> <i
+                    class="fa fa-angle-right"></i></a> <a id="prevBrand" class="link pull-right carousel-nav"> <i
+                    class="fa fa-angle-left"></i> </a></h3>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="no-margin brand-carousel owl-carousel owl-theme">
+                        <li><a><img src="{% static 'images/brand/1.gif' %}" alt="img"></a></li>
+                        <li><img src="{% static 'images/brand/2.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/3.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/4.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/5.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/6.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/7.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/8.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/1.gif' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/2.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/3.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/4.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/5.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/6.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/7.png' %}" alt="img"></li>
+                        <li><img src="{% static 'images/brand/8.png' %}" alt="img"></li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>-->
+        <!--/.section-block-->
+
+    </div>
+    <!--main-container-->
+
+    <div class="parallax-section parallax-image-2">
+        <div class="w100 parallax-section-overley">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="parallax-content clearfix">
+                            <h1 class="xlarge"> Trusted Seller 500+ </h1>
+                            <h5 class="parallaxSubtitle"> Lorem ipsum dolor sit amet consectetuer </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.parallax-section-->
+
+    <!-- Product Details Modal  -->
+    <!-- Modal -->
+    <div class="modal fade" id="productSetailsModalAjax" tabindex="-1" role="dialog"
+         aria-labelledby="productSetailsModalAjaxLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End Modal -->
+    <div class="modal fade hide" id="modalAds" role="dialog">
+        <div class="modal-dialog  modal-bg-1">
+            <div class="modal-body-content">
+                <a class="close" data-dismiss="modal">×</a>
+
+                <div class="modal-body">
+                    <div class="col-lg-6 col-sm-8 col-xs-8">
+                        <h3>enter your <br>email to receive</h3>
+
+                        <p class="discountLg">10% OFF </p>
+
+                        <p>We invite you to subscribe to our newsletter and receive 10% discount.
+                        </p>
+
+                        <!--<div class="clearfx">
+                            <form id="newsletter" class="newsletter">
+                                <input type="text" id="subscribe" name="s" placeholder="Enter email">
+                                <button class="subscribe-btn">Subscribe</button>
+                            </form>
+                        </div>-->
+
+                        <p>
+                            <!--<a href="category.html" class="link shoplink"> SHOP NOW <i class="fa fa-caret-right"> </i>
+                        </a>-->
+                        </p>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

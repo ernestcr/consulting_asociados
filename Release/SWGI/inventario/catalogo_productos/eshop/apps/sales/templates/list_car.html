@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'common/head.html' %}
+    <!-- styles needed by footable  -->
+    <link href="{% static 'assets/css/footable-0.1.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/css/footable.sortable-0.1.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+{% include 'common/navbar.html' %}
+
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active"> Lista de pedidos</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-md-offset-2 col-sm-8">
+            <h1 class="section-title-inner"><span><i class="fa fa-list-alt"></i> Lista de órdenes </span></h1>
+
+            <div class="row userInfo">
+                <div class="col-lg-12">
+                    <h2 class="block-title-2"> Su lista de órdenes </h2>
+                </div>
+
+                <div style="clear:both"></div>
+
+                <div class="col-xs-12 col-sm-12">
+                    <table class="footable">
+                        <thead>
+                        <tr>
+                            <th data-class="expand"><span
+                                    title="table sorted by this column on load">Orden ID</span></th>
+                            <th data-hide="phone,tablet">No. of items</th>
+                            <th data-hide="phone,tablet">Factura</th>
+                            <th data-hide="phone,tablet"><strong>Método de pago</strong></th>
+                            <th data-hide="phone,tablet"><strong></strong></th>
+                            <th data-hide="default"  data-type="numeric"> Precio</th>
+                            <th data-hide="default" data-type="date"> Fecha</th>
+                            <th data-hide="phone"> Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for sale in sales %}
+                        <tr>
+                            <td>#{{ sale.uid|upper }}</td>
+                            <td>{{ sale.products.all|length }}
+                                <small>item(s)</small>
+                            </td>
+                            <td><a target="_blank">-</a></td>
+                            <td>Bank Wire</td>
+                            <td><a href="{% url 'sales:sale_detail' sale.uid %}" class="btn btn-primary btn-sm">Ver estado</a></td>
+                            <td>$ {{ sale.total_amount }}</td>
+                            <td data-value="78025368997">{{ sale.date_requested }}</td>
+                            <td data-value="3">
+                                <span class="label label-label
+                                    {% if sale.state == "paid" %}label-success{% endif %}
+                                    {% if sale.state == "canceled" %}label-default{% endif %}
+                                    {% if sale.state == "delivered" %}label-danger{% endif %}
+                                    {% if sale.state == "requested" %}label-primary{% endif %}">
+                                    {{ sale.state }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="clear:both"></div>
+
+                <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="previous pull-right"><a href="/"> <i class="fa fa-home"></i> Seguir comprando </a>
+                        </li>
+                        <!--<li class="next pull-left"><a href="account.html"> &larr; Back to My Account</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <!--/row end-->
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5"></div>
+    </div>
+    <!--/row-->
+
+    <div style="clear:both"></div>
+</div>
+<!-- /main-container -->
+
+<div class="gap"></div>
+
+{% include 'common/footer.html' %}
+{% include 'common/scripts.html' %}
+
+<!-- include footable plugin -->
+<script src="{% static 'assets/js/footable.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/footable.sortable.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.footable').footable();
+    });
+</script>
+
+</body>
+</html>
